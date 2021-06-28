@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import { FaAlignJustify } from "react-icons/fa"
-import logo from "../assets/images/logo.svg"
+import logo from "../assets/images/whitesign-logo.png"
 
-const navbar = () => {
+const Navbar = () => {
+  const [show, setShow] = useState(false)
   return (
     <nav className="navbar">
       <div className="nav-center">
@@ -11,11 +12,11 @@ const navbar = () => {
           <Link to="/">
             <img src={logo} alt="simply recipes" />
           </Link>
-          <button className="nav-btn">
+          <button className="nav-btn" onClick={() => setShow(!show)}>
             <FaAlignJustify />
           </button>
         </div>
-        <div className="nav-links show-links">
+        <div className={show ? "nav-links show-links" : "nav-links"}>
           <Link to="/" className="nav-link" activeClassName="active-link">
             home
           </Link>
@@ -44,4 +45,4 @@ const navbar = () => {
   )
 }
 
-export default navbar
+export default Navbar

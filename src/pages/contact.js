@@ -53,7 +53,6 @@ const Contact = () => {
           </article>
         </section>
       </main>
-      <h1>Contact Page</h1>
     </Layout>
   )
 }
