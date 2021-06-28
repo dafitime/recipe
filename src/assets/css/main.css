@@ -786,3 +786,8 @@ form > *:last-child {
   color: var(--primary-500);
   text-transform: capitalize;
 }
+
+.image-content-2 {
+  display: flex;
+  justify-content: center;
+}
