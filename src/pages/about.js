@@ -27,12 +27,14 @@ const About = () => {
                 contact
               </Link>
             </article>
-            <StaticImage
-              src="../assets/images/pic2.jpeg"
-              alt="Person Pouring Salt in Bowl"
-              className="example-img"
-              placeholder="blurred"
-            />
+            <div className="image-wrapper">
+              <StaticImage
+                src="../assets/images/pic2.jpeg"
+                alt="Person Pouring Salt in Bowl"
+                placeholder="blurred"
+                className="example-img"
+              />
+            </div>
           </section>
         </main>
       </Wrapper>
@@ -41,27 +43,30 @@ const About = () => {
 }
 
 const Wrapper = styled.section`
-  .example-img {
+  .image-wrapper {
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
       rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
       rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
     border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    margin-left: 20px;
+  }
 
-    .exmaple-img:hover {
-      position: absolute;
-      text-align: center;
-      padding-left: 1em;
-      padding-right: 1em;
-      width: 100%;
-      top: 50%;
-      left: 50%;
-      opacity: 0;
-      -webkit-transform: translate(-50%, -50%);
-      -moz-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      -webkit-transition: all 0.3s ease-in-out 0s;
-      -moz-transition: all 0.3s ease-in-out 0s;
-      transition: all 0.3s ease-in-out 0s;
+  .section-wrapper {
+    margin-top: 5vh;
+  }
+
+  .example-img {
+    opacity: 1;
+    transition: transform 0.5s, filter 0.5s ease-in-out;
+    filter: blur(0);
+    transform: scale(1);
+
+    :hover {
+      filter: blur(2px);
+
+      transform: scale(1.2);
     }
   }
 `
