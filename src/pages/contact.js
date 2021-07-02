@@ -32,17 +32,17 @@ const Contact = () => {
           <article>
             <form className="form contact-form">
               <div className="form-row">
-                <label htmlForm="name">your name</label>
+                <label htmlFor="name">your name</label>
                 <input type="text" name="name" id="name" />
               </div>
 
               <div className="form-row">
-                <label htmlForm="email">your email</label>
+                <label htmlFor="email">your email</label>
                 <input type="text" name="email" id="email" />
               </div>
 
               <div className="form-row">
-                <label htmlForm="message">message</label>
+                <label htmlFor="message">message</label>
                 <textarea name="message" id="message"></textarea>
               </div>
 

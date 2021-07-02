@@ -1,8 +1,9 @@
 import React from "react"
 import Layout from "../components/Layout"
 import { StaticImage } from "gatsby-plugin-image"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 import styled from "styled-components"
+import RecipesList from "../components/RecipesList"
 
 const About = () => {
   return (
@@ -36,11 +37,38 @@ const About = () => {
               />
             </div>
           </section>
+          <section className="featured-recipes">
+            <h5>Sign List</h5>
+            <RecipesList />
+          </section>
         </main>
       </Wrapper>
     </Layout>
   )
 }
+
+export const query = graphql`
+  {
+    allContentfulRecipe(
+      sort: { fields: title, order: ASC }
+      filter: { featured: { eq: true } }
+    ) {
+      nodes {
+        id
+        title
+        cookTime
+        prepTime
+        content {
+          id
+        }
+        image {
+          gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+        }
+      }
+      totalCount
+    }
+  }
+`
 
 const Wrapper = styled.section`
   .image-wrapper {
